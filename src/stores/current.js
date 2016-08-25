@@ -19,7 +19,7 @@ module.exports = {
 				log.debug(current);
 				return current;
 			}
-			log.debug('No Current battle');
+			log.debug('No Current item');
 			return null;
 		})
 		.catch((err) => {

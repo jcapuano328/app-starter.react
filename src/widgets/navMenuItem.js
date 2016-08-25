@@ -7,7 +7,7 @@ var log = require('../services/log');
 
 var NavMenuItem = React.createClass({
     onPress() {
-        this.props.onPress && this.props.onPress(this.props.name);
+        this.props.onPress && this.props.onPress('item', this.props.item.id);
     },
     render() {
         return (
@@ -31,8 +31,8 @@ var NavMenuItem = React.createClass({
                             height: 96,
                             resizeMode: 'contain',
                             //backgroundColor: 'transparent',
-                        }} source={Icons[this.props.image]} />
-                        <Text style={{fontSize: 20,textAlign: 'center',margin: 10}}>{this.props.name}</Text>
+                        }} source={Icons[this.props.item.image]} />
+                        <Text style={{fontSize: 20,textAlign: 'center',margin: 10}}>{this.props.item.name}</Text>
                     </View>
                 </View>
             </TouchableOpacity>

@@ -11,8 +11,7 @@ module.exports = {
 	load() {
 		return Store.load()
 		.then((current) => {
-        	_current = current || {};
-			_current.player = _current.player || 'first';
+        	_current = current;
             return _current;
 		});
 	},
@@ -33,7 +32,7 @@ module.exports = {
 		});
 	},
 	turn() {
-		return _current.turn.toString();
+		return (_current.turn || 1).toString();
 	},
 	prevTurn(dosave) {
 		log.debug('prev turn: ' + _current.turn);

@@ -4,7 +4,7 @@ var React = require('react');
 import { View, Text, Navigator } from 'react-native';
 var DrawerLayout = require('./widgets/drawerLayout');
 var NavMenu = require('./widgets/navMenu');
-var BattleNavMenuItem = require('./widgets/navMenuItem');
+var NavMenuItem = require('./widgets/navMenuItem');
 var TitleBar = require('./widgets/titleBar');
 import { MenuContext } from 'react-native-menu';
 var EventEmitter = require('EventEmitter');
@@ -32,7 +32,7 @@ var MainView = React.createClass({
         //new Promise((a,r)=> a())
         .then((data) => {
             if (data) {
-                this.state.routes.item.data = Items.scenario(data.scenario);
+                this.state.routes.item.data = Items.get(data.id);
                 this.refs.navigator.resetTo(this.state.routes.item);
             } else {
                 log.debug('mainView: no current item');
@@ -126,6 +126,7 @@ var MainView = React.createClass({
                     onDrawerStateChanged={(e) => this.setState({drawerStateChangedOutput: JSON.stringify(e)})}
                     drawerWidth={300}
                     renderNavigationView={() => <NavMenu items={Items.items.map((item,i) => {
+                        console.log(item);
                             return (
                                 <NavMenuItem key={i+1} item={item} onPress={this.navMenuHandler} />
                             );
@@ -136,7 +137,7 @@ var MainView = React.createClass({
                             debugOverlay={false}
                             initialRoute={this.state.initialRoute}
                             renderScene={this.renderScene}
-                            navigationBar={<Navigator.NavigationBar style={{backgroundColor: 'blue'}} routeMapper={TitleBar()} />}
+                            navigationBar={<Navigator.NavigationBar style={{backgroundColor: 'gray'}} routeMapper={TitleBar()} />}
                         />
                     </MenuContext>
                 </DrawerLayout>

@@ -4,8 +4,8 @@ module.exports = {
 	"menu": require('./hamburger-light.png'),
 	"info": require('./info-light.png'),
 
-	"first": require('./1.png'),
-	"second": require('./2.png'),
+	"first": require('./first.png'),
+	"second": require('./second.png'),
 
 	"1": require('./1.png'),
 	"2": require('./2.png'),
