@@ -3,7 +3,7 @@
 var React = require('react');
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 var SpinSelect = require('./widgets/spinSelect');
-var icons = require('./res/icons');
+var icons = require('./widgets/icons');
 var Current = require('./services/current');
 
 var TurnView = React.createClass({

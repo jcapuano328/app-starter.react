@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 var TurnView = require('./turnView');
 var Current = require('./services/current');
-var icons = require('./res/icons');
+var icons = require('./widgets/icons');
 
 var ItemView = React.createClass({
     getInitialState() {

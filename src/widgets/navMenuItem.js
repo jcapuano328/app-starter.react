@@ -2,7 +2,7 @@
 
 var React = require('react');
 import { View, Image, Text, TouchableOpacity } from 'react-native';
-var Icons = require('../res/icons');
+var Icons = require('./icons');
 var log = require('../services/log');
 
 var NavMenuItem = React.createClass({
@@ -32,7 +32,10 @@ var NavMenuItem = React.createClass({
                             resizeMode: 'contain',
                             //backgroundColor: 'transparent',
                         }} source={Icons[this.props.item.image]} />
-                        <Text style={{fontSize: 20,textAlign: 'center',margin: 10}}>{this.props.item.name}</Text>
+                        <View style={{flex: 1}}>
+                            <Text style={{fontSize: 20,textAlign: 'center',margin: 10}}>{this.props.item.name}</Text>
+                            <Text style={{fontSize: 15,textAlign: 'center',margin: 10}}>{this.props.item.desc}</Text>
+                        </View>
                     </View>
                 </View>
             </TouchableOpacity>
