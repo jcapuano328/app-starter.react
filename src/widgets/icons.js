@@ -17,5 +17,7 @@ module.exports = {
 	"prevButton":	require('../res/ic_action_previous_item.png'),
 	"nextButton": require('../res/ic_action_next_item.png'),
 	"checked": require('../res/checked_checkbox.png'),
-	"unchecked": require('../res/unchecked_checkbox.png')
+	"unchecked": require('../res/unchecked_checkbox.png'),
+	"calendar": require('../res/calendar.png'),
+	"clock": require('../res/clock.png')
 };
