@@ -90,6 +90,13 @@ var MainView = React.createClass({
     },
     renderScene(route, navigator) {
         route = route || {};
+let Die = require('./widgets/die');
+return (
+    <View style={{flex: 1,marginTop: 60}}>
+        <Die dieColor={'blue'} dotColor={'white'} size={64} onPress={(d) => console.log(d)} />
+    </View>
+);
+
         log.debug('render scene ' + route.name);
         if (route.name == 'landing') {
             return (
@@ -126,7 +133,6 @@ var MainView = React.createClass({
                     onDrawerStateChanged={(e) => this.setState({drawerStateChangedOutput: JSON.stringify(e)})}
                     drawerWidth={300}
                     renderNavigationView={() => <NavMenu items={Items.items.map((item,i) => {
-                        console.log(item);
                             return (
                                 <NavMenuItem key={i+1} item={item} onPress={this.navMenuHandler} />
                             );

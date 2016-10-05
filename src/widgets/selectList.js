@@ -6,8 +6,8 @@ var Checkbox = require('./checkbox');
 
 var SelectList = React.createClass({
     onSelected(item) {
-        return (b) => {
-            this.props.onChanged && this.props.onChanged(b ? item : '');
+        return (b) => {            
+            this.props.onChanged && this.props.onChanged(b ? (item.value||item) : null);
         }
     },
     render() {
@@ -20,7 +20,7 @@ var SelectList = React.createClass({
                     scrollEventThrottle={200}>
                     {this.props.items.map((item,i) => {
                         return (
-                            <Checkbox key={i} label={item} selected={this.props.selected==item} onSelected={this.onSelected(item)}/>
+                            <Checkbox key={i} label={item.label || item} selected={this.props.selected==(item.value||item)} onSelected={this.onSelected(item)}/>
                         );
                     })}
                 </ScrollView>
