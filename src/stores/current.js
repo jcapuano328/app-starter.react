@@ -51,7 +51,7 @@ module.exports = {
 			log.warn(err.message);
 		});
 	},
-	reset(data) {
+	reset(data) {			
 		return this.save(blank)
 		.then(() => {
 			return blank;

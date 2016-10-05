@@ -10,15 +10,11 @@ var icons = require('./widgets/icons');
 var ItemView = React.createClass({
     getInitialState() {
         return {
-            item: this.props.item,
             initialPage: 0
         };
     },
     componentWillMount: function() {
         this.props.events.addListener('menureset', this.onReset);
-    },
-    shouldComponentUpdate(nextProps, nextState) {
-        return true;
     },
     onReset() {
         Current.reset(this.props.item)
@@ -30,7 +26,7 @@ var ItemView = React.createClass({
     onChangeTab({i, ref}) {
     },
     render() {
-        let item = this.state.item || {};
+        let item = this.props.item || {};
         return (
             <View style={{flex: 1,backgroundColor: 'rgba(0,0,0,0.01)'}}>
                 <TurnView logo={icons[item.image]} events={this.props.events} />

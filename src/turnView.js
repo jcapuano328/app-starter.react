@@ -17,9 +17,6 @@ var TurnView = React.createClass({
     componentDidMount: function() {
         this.props.events.addListener('reset', this.onReset);
     },
-    shouldComponentUpdate(nextProps, nextState) {
-        return true;
-    },
     onReset() {
         this.setState({turn: Current.turn(), phase: Current.phase(), player: Current.player()});
     },

@@ -90,6 +90,20 @@ var MainView = React.createClass({
     },
     renderScene(route, navigator) {
         route = route || {};
+        /*
+let SpinButton = require('./widgets/spinButton');
+let SpinNumeric = require('./widgets/spinNumeric');
+let SpinSelect = require('./widgets/spinSelect');
+return (
+    <View style={{marginTop: 60}}>
+        <SpinButton direction={'prev'} onPress={() => console.log('pressed')} />
+        <SpinNumeric label={'First'} value={'10'} min={0} max={100} onChanged={(v) => console.log(v)} />
+        <SpinNumeric label={'Second'} value={'20'} min={0} max={100} onChanged={(v) => console.log(v)} />
+        <SpinSelect value={'2016'} onPrev={() => console.log('prev turn')} onNext={() => console.log('next turn')} />
+        <SpinSelect label={'Phase'} value={'Now'} onPrev={() => console.log('prev phase')} onNext={() => console.log('next phase')} />
+    </View>
+);
+*/
         log.debug('render scene ' + route.name);
         if (route.name == 'landing') {
             return (
@@ -97,7 +111,7 @@ var MainView = React.createClass({
             );
         }
 
-        if (route.name == 'item') {
+        if (route.name == 'item') {            
             this.state.routes.item.title = route.data.name;
             this.state.routes.item.subtitle = route.data.desc;
             return (
@@ -126,7 +140,6 @@ var MainView = React.createClass({
                     onDrawerStateChanged={(e) => this.setState({drawerStateChangedOutput: JSON.stringify(e)})}
                     drawerWidth={300}
                     renderNavigationView={() => <NavMenu items={Items.items.map((item,i) => {
-                        console.log(item);
                             return (
                                 <NavMenuItem key={i+1} item={item} onPress={this.navMenuHandler} />
                             );
