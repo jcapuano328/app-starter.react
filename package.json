@@ -15,8 +15,8 @@
     "logs": "adb logcat *:S ReactNative:V ReactNativeJS:V"
   },
   "dependencies": {
-    "app-nub.react": "git+ssh://git@github.com:jcapuano328/app-nub.react.git",
-    "dice.react": "git+ssh://git@github.com:jcapuano328/dice.react.git",
+    "react-native-app-nub": "https://git@github.com/jcapuano328/react-native-app-nub.git",
+    "react-native-dice": "https://git@github.com/jcapuano328/react-native-dice.git",
     "apsl-react-native-button": "^3.0.0",
     "moment": "^2.14.1",
     "react": "^15.3.2",

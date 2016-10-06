@@ -3,7 +3,7 @@
 var RNFS = require('react-native-fs');
 var FILE = 'appstarter.app.current';
 var PATH = RNFS.DocumentDirectoryPath + '/' + FILE;
-var log = require('app-nub.react').Log;
+var log = require('react-native-app-nub').Log;
 
 var blank = require('./current.json');
 

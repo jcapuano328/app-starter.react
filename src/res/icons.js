@@ -1,8 +1,11 @@
+import { Icons } from 'react-native-app-nub';
+
 module.exports = {
 	"logo": require('./logo.png'),
 	"splash": require('./splash.png'),
-	"menu": require('./hamburger-dark.png'),
-	"info": require('./info-dark.png'),
+	"menu": Icons['menu-dark'],
+	"info": Icons['info-dark'],
+	"refresh": Icons['refresh-dark'],
 
 	"first": require('./first.png'),
 	"second": require('./second.png'),
@@ -13,7 +16,6 @@ module.exports = {
 	"4": require('./4.png'),
 	"5": require('./5.png'),
 
-	"refreshButton": require('./refresh-dark.png'),
 	"calendar": require('./calendar.png'),
 	"clock": require('./clock.png')
 };

@@ -2,7 +2,7 @@
 
 var React = require('react');
 import { View, Text, Navigator } from 'react-native';
-import {DrawerLayout, NavMenu, NavMenuItem, TitleBar, LandingView, AboutView, Log} from 'app-nub.react';
+import {DrawerLayout, NavMenu, NavMenuItem, TitleBar, LandingView, AboutView, Log} from 'react-native-app-nub';
 import { MenuContext } from 'react-native-menu';
 var moment = require('moment');
 var Icons = require('./res/icons');
@@ -142,7 +142,7 @@ var MainView = React.createClass({
                     drawerWidth={300}
                     renderNavigationView={() => <NavMenu items={Items.items.map((item,i) => {
                             return (
-                                <NavMenuItem key={i+1} item={item} onPress={this.navMenuHandler} />
+                                <NavMenuItem key={i+1} item={{id:item.id,name:item.name,desc:item.desc,image:Icons[item.image]}} onPress={this.navMenuHandler} />
                             );
                         })} /> }>
                     <MenuContext style={{flex: 1}}>
@@ -151,7 +151,7 @@ var MainView = React.createClass({
                             debugOverlay={false}
                             initialRoute={this.state.initialRoute}
                             renderScene={this.renderScene}
-                            navigationBar={<Navigator.NavigationBar style={{backgroundColor: 'gray'}} routeMapper={TitleBar()} />}
+                            navigationBar={<Navigator.NavigationBar style={{backgroundColor: 'gray'}} routeMapper={TitleBar({menu: Icons.menu, refresh: Icons.refresh, info: Icons.info})} />}
                         />
                     </MenuContext>
                 </DrawerLayout>
