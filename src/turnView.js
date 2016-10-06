@@ -2,8 +2,8 @@
 
 var React = require('react');
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-var SpinSelect = require('./widgets/spinSelect');
-var icons = require('./widgets/icons');
+import {SpinSelect} from 'app-nub.react';
+var icons = require('./res/icons');
 var Current = require('./services/current');
 
 var TurnView = React.createClass({

@@ -3,7 +3,7 @@
 var Store = require('../stores/current');
 var Battles = require('./items');
 var Phases = require('./phases');
-var log = require('./log');
+var log = require('app-nub.react').Log;
 
 var _current = {};
 

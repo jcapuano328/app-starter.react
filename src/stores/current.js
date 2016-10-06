@@ -3,7 +3,7 @@
 var RNFS = require('react-native-fs');
 var FILE = 'appstarter.app.current';
 var PATH = RNFS.DocumentDirectoryPath + '/' + FILE;
-var log = require('../services/log.js');
+var log = require('app-nub.react').Log;
 
 var blank = require('./current.json');
 
@@ -51,7 +51,7 @@ module.exports = {
 			log.warn(err.message);
 		});
 	},
-	reset(data) {			
+	reset(data) {
 		return this.save(blank)
 		.then(() => {
 			return blank;

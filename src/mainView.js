@@ -2,18 +2,15 @@
 
 var React = require('react');
 import { View, Text, Navigator } from 'react-native';
-var DrawerLayout = require('./widgets/drawerLayout');
-var NavMenu = require('./widgets/navMenu');
-var NavMenuItem = require('./widgets/navMenuItem');
-var TitleBar = require('./widgets/titleBar');
+import {DrawerLayout, NavMenu, NavMenuItem, TitleBar, LandingView, AboutView, Log} from 'app-nub.react';
 import { MenuContext } from 'react-native-menu';
+var moment = require('moment');
+var Icons = require('./res/icons');
 var EventEmitter = require('EventEmitter');
-var LandingView = require('./landingView');
-var AboutView = require('./aboutView');
 var ItemView = require('./itemView');
 var Items = require('./services/items');
 var Current = require('./services/current');
-var log = require('./services/log');
+var log = Log;
 
 var MainView = React.createClass({
     getInitialState() {
@@ -90,28 +87,8 @@ var MainView = React.createClass({
     },
     renderScene(route, navigator) {
         route = route || {};
-        /*
-let SpinButton = require('./widgets/spinButton');
-let SpinNumeric = require('./widgets/spinNumeric');
-let SpinSelect = require('./widgets/spinSelect');
-return (
-    <View style={{marginTop: 60}}>
-        <SpinButton direction={'prev'} onPress={() => console.log('pressed')} />
-        <SpinNumeric label={'First'} value={'10'} min={0} max={100} onChanged={(v) => console.log(v)} />
-        <SpinNumeric label={'Second'} value={'20'} min={0} max={100} onChanged={(v) => console.log(v)} />
-        <SpinSelect value={'2016'} onPrev={() => console.log('prev turn')} onNext={() => console.log('next turn')} />
-        <SpinSelect label={'Phase'} value={'Now'} onPrev={() => console.log('prev phase')} onNext={() => console.log('next phase')} />
-    </View>
-);
-*/
         log.debug('render scene ' + route.name);
-        if (route.name == 'landing') {
-            return (
-                <LandingView events={this.eventEmitter} />
-            );
-        }
-
-        if (route.name == 'item') {            
+        if (route.name == 'item') {
             this.state.routes.item.title = route.data.name;
             this.state.routes.item.subtitle = route.data.desc;
             return (
@@ -121,12 +98,36 @@ return (
 
         if (route.name == 'about') {
             return (
-                <AboutView version={this.state.version} events={this.eventEmitter} onClose={() => {navigator.pop();}} />
+                <AboutView logo={Icons.logo}
+                    title={'About App Starter'}
+                    version={this.state.version}
+                    releasedate={moment().format('MMM DD, YYYY HH:mm')}
+                    description={'A starter kit for navigable apps'}
+                    credit={{
+                        description: 'All glory to them that made it possible!',
+                        links: [
+                            {label: 'A link', url: 'http://www.google.com'},
+                            {label: 'Another link', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'}
+                        ]
+                    }}
+                    additionalinfo={{
+                        description: 'And of course check out the extras',
+                        links: [
+                            {label: 'A link', url: 'http://www.google.com'},
+                            {label: 'Another link', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'}
+                        ]
+                    }}
+                    dependencies={[
+                        {description: 'A module', url: ''},
+                        {description: 'Another module', url: ''}
+                    ]}
+                    events={this.eventEmitter} onClose={() => {navigator.pop();}}
+                />
             );
         }
 
         return (
-            <LandingView events={this.eventEmitter} />
+            <LandingView top={30} splash={Icons.splash} events={this.eventEmitter} />
         );
     },
     render() {

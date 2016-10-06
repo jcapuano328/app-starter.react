@@ -9,10 +9,10 @@ var phases = [
 
 module.exports = {
 	count: phases.length,
-	all: function() {
+	all() {
     	return phases;
     },
-    get: function(idx) {
+    get(idx) {
     	if (idx > -1 && idx < phases.length) {
         	return phases[idx];
         }
